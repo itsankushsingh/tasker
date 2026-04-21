@@ -1,0 +1,280 @@
+i giving you all apis and there response with requests
+
+
+1. POST - "localhost:8000/api/v1/user/register" Request :
+{
+    "username":"admin",
+    "email":"admin@email.com",
+    "fullName":"Admin",
+    "password": "password"
+}
+
+response : {
+    "statusCode": 200,
+    "data": {
+        "createdUser": {
+            "_id": "69e7a8cc36e582f4b6825357",
+            "username": "admin1",
+            "email": "admin1@email.com",
+            "fullName": "Admin1",
+            "role": "user",
+            "createdAt": "2026-04-21T16:41:48.810Z",
+            "updatedAt": "2026-04-21T16:41:48.810Z",
+            "__v": 0
+        }
+    },
+    "message": "User Created Successfully",
+    "success": true
+}
+
+
+2. POST - "localhost:8000/api/v1/user/login" Request :{
+    "email":"email2@email.com",
+    "password": "password"
+}
+
+Response : {
+    "statusCode": 200,
+    "data": {
+        "user": {
+            "_id": "69e77d0eb1902e939d8d3f69",
+            "username": "username2",
+            "email": "email2@email.com",
+            "fullName": "Name2",
+            "role": "user",
+            "createdAt": "2026-04-21T13:35:10.884Z",
+            "updatedAt": "2026-04-21T16:26:01.479Z",
+            "__v": 0
+        },
+        "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OWU3N2QwZWIxOTAyZTkzOWQ4ZDNmNjkiLCJlbWFpbCI6ImVtYWlsMkBlbWFpbC5jb20iLCJ1c2VybmFtZSI6InVzZXJuYW1lMiIsImZ1bGxOYW1lIjoiTmFtZTIiLCJyb2xlIjoidXNlciIsImlhdCI6MTc3Njc4ODc2MSwiZXhwIjoxNzc2ODc1MTYxfQ.GcTA-oKA9p8nlNGMKbIUnza-z9UHDzw7ny1BH1vK5ac"
+    },
+    "message": "User Logged In",
+    "success": true
+}
+
+3. POST - "localhost:8000/api/v1/user/logout" Request : none , Response : {
+    "statusCode": 200,
+    "data": {},
+    "message": "Logged out Successfully",
+    "success": true
+}
+
+4. GET - "localhost:8000/api/v1/user/all-users" Request: none, Response : {
+    "statusCode": 200,
+    "data": {
+        "users": [
+            {
+                "_id": "69e737552e91867a20e2fe07",
+                "username": "username",
+                "email": "email@email.com"
+            },
+            {
+                "_id": "69e77d0eb1902e939d8d3f69",
+                "username": "username2",
+                "email": "email2@email.com"
+            },
+            {
+                "_id": "69e77d840dca6675e1481cd0",
+                "username": "admin",
+                "email": "admin@email.com"
+            }
+        ]
+    },
+    "message": "All Users",
+    "success": true
+}
+
+6. POST - "localhost:8000/api/v1/task/new-task" Request : {
+    "title": "Now Add Frontend",
+    "description": "This API endpoint is used to create a new task in the system.",
+    "dueDate": "2023-12-31"
+}
+
+response : {
+    "statusCode": 200,
+    "data": {
+        "task": {
+            "title": "Now Add Frontend",
+            "description": "This API endpoint is used to create a new task in the system.",
+            "status": "pending",
+            "dueDate": "2023-12-31T00:00:00.000Z",
+            "createdBy": "69e77d840dca6675e1481cd0",
+            "assignedTo": "69e77d840dca6675e1481cd0",
+            "_id": "69e7a89636e582f4b6825356",
+            "createdAt": "2026-04-21T16:40:54.847Z",
+            "updatedAt": "2026-04-21T16:40:54.847Z",
+            "__v": 0
+        }
+    },
+    "message": "Task Created Successfully",
+    "success": true
+}
+
+7. POST - "localhost:8000/api/v1/task/assign-task" Request : {
+    "title": "2 Assigned Task",
+    "description": "This API endpoint is used to create a new task in the system.",
+    "assignedTo": "69e77d0eb1902e939d8d3f69",
+    "dueDate": "2023-12-31"
+}
+
+response :{
+    "statusCode": 200,
+    "data": {
+        "task": {
+            "title": "2 Assigned Task",
+            "description": "This API endpoint is used to create a new task in the system.",
+            "status": "pending",
+            "dueDate": "2023-12-31T00:00:00.000Z",
+            "createdBy": "69e77d840dca6675e1481cd0",
+            "assignedTo": "69e77d0eb1902e939d8d3f69",
+            "_id": "69e7a88036e582f4b6825355",
+            "createdAt": "2026-04-21T16:40:32.155Z",
+            "updatedAt": "2026-04-21T16:40:32.155Z",
+            "__v": 0
+        }
+    },
+    "message": "Task Created Successfully",
+    "success": true
+}
+
+8. GET - "localhost:8000/api/v1/task/all-tasks" Request : none , response : {
+    "statusCode": 200,
+    "data": {
+        "tasks": [
+            {
+                "_id": "69e78b0bd9f8d9fbfef68be4",
+                "title": "Create a new task",
+                "description": "This API endpoint is used to create a new task in the system.",
+                "status": "pending",
+                "dueDate": "2023-12-31T00:00:00.000Z",
+                "createdBy": "69e737552e91867a20e2fe07",
+                "createdAt": "2026-04-21T14:34:51.596Z",
+                "updatedAt": "2026-04-21T14:34:51.596Z",
+                "__v": 0
+            },
+            {
+                "_id": "69e78b487d24212ee9241efa",
+                "title": "Now Add Frontend",
+                "description": "This API endpoint is used to create a new task in the system.",
+                "status": "pending",
+                "dueDate": "2023-12-31T00:00:00.000Z",
+                "createdBy": "69e737552e91867a20e2fe07",
+                "createdAt": "2026-04-21T14:35:52.834Z",
+                "updatedAt": "2026-04-21T14:35:52.834Z",
+                "__v": 0
+            },
+            {
+                "_id": "69e79178b7546d2472c49116",
+                "title": "Assigned Task",
+                "description": "This API endpoint is used to create a new task in the system.",
+                "status": "pending",
+                "dueDate": "2023-12-31T00:00:00.000Z",
+                "createdBy": "69e77d840dca6675e1481cd0",
+                "assignedTo": {
+                    "_id": "69e737552e91867a20e2fe07",
+                    "username": "username",
+                    "email": "email@email.com"
+                },
+                "createdAt": "2026-04-21T15:02:16.505Z",
+                "updatedAt": "2026-04-21T15:02:16.505Z",
+                "__v": 0
+            },
+            {
+                "_id": "69e7953b86f551b6517644fb",
+                "title": "2 Assigned Task",
+                "description": "This API endpoint is used to create a new task in the system.",
+                "status": "pending",
+                "dueDate": "2023-12-31T00:00:00.000Z",
+                "createdBy": "69e77d840dca6675e1481cd0",
+                "assignedTo": {
+                    "_id": "69e77d0eb1902e939d8d3f69",
+                    "username": "username2",
+                    "email": "email2@email.com"
+                },
+                "createdAt": "2026-04-21T15:18:19.715Z",
+                "updatedAt": "2026-04-21T15:18:19.715Z",
+                "__v": 0
+            }
+        ]
+    },
+    "message": "Fetched All Tasks",
+    "success": true
+}
+
+9. PATCH - "localhost:8000/api/v1/task/update/69e7716882001e3a052c8d8e"
+Request : {
+    "title": "Update Task 5" ,
+    "description": "This API endpoint is used to update an existing task.",
+    "dueDate": "2023-12-31",
+    "status": "completed"
+}
+
+response : {
+    "statusCode": 200,
+    "data": {
+        "updatedTask": {
+            "_id": "69e78d767a42f4a915811de4",
+            "title": "Update Task 5",
+            "description": "This API endpoint is used to update an existing task.",
+            "status": "completed",
+            "dueDate": "2023-12-31T00:00:00.000Z",
+            "createdBy": "69e737552e91867a20e2fe07",
+            "assignedTo": "69e737552e91867a20e2fe07",
+            "createdAt": "2026-04-21T14:45:10.949Z",
+            "updatedAt": "2026-04-21T16:35:18.651Z",
+            "__v": 0
+        }
+    },
+    "message": "Updated Successfully",
+    "success": true
+}
+
+10. PATCH - "localhost:8000/api/v1/task/69e78d767a42f4a915811de4"
+
+request : {
+    "status": "completed"
+}
+
+response: {
+    "statusCode": 200,
+    "data": {
+        "updatedTask": {
+            "_id": "69e78d767a42f4a915811de4",
+            "title": "Update Task 5",
+            "description": "This API endpoint is used to update an existing task.",
+            "status": "completed",
+            "dueDate": "2023-12-31T00:00:00.000Z",
+            "createdBy": "69e737552e91867a20e2fe07",
+            "assignedTo": "69e737552e91867a20e2fe07",
+            "createdAt": "2026-04-21T14:45:10.949Z",
+            "updatedAt": "2026-04-21T16:36:05.468Z",
+            "__v": 0
+        }
+    },
+    "message": "Task Updated",
+    "success": true
+}
+
+11. DELETE - "localhost:8000/api/v1/task/69e78d767a42f4a915811de4"
+
+request : none
+
+reponse: {
+    "statusCode": 200,
+    "data": {
+        "deletedTask": {
+            "_id": "69e78d767a42f4a915811de4",
+            "title": "Update Task 5",
+            "description": "This API endpoint is used to update an existing task.",
+            "status": "completed",
+            "dueDate": "2023-12-31T00:00:00.000Z",
+            "createdBy": "69e737552e91867a20e2fe07",
+            "assignedTo": "69e737552e91867a20e2fe07",
+            "createdAt": "2026-04-21T14:45:10.949Z",
+            "updatedAt": "2026-04-21T16:36:05.468Z",
+            "__v": 0
+        }
+    },
+    "message": "Task Deleted Successfully",
+    "success": true
+}
