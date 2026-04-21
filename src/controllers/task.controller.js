@@ -79,7 +79,6 @@ const getTask = asyncHandler(async (req, res) => {
 //Update Task
 const updateTask = asyncHandler(async (req, res) => {
     const task = await Task.findById(req.params.id)
-console.log("Request Task");
 
     if (!task) {
         throw new ApiError(404,"Task Not Found")

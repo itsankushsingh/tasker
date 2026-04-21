@@ -59,7 +59,6 @@ const registerUser = asyncHandler(async (req, res) => {
 
 // Login User
 const loginUser = asyncHandler(async (req, res) => {
-    console.log("Request");
     
     const { email, password } = req.body;
     
