@@ -1,0 +1,287 @@
+{
+  "info": {
+    "_postman_id": "d7e89fa7-8faf-483e-9aa1-bf20560ce6ea",
+    "name": "Tasker",
+    "description": "This collection contains all the API endpoints for the Task Management System built with Node.js, Express, and MongoDB. It includes authentication and task management APIs with role-based access control (RBAC).\n\nThe collection is organized into User and Task modules, covering features such as user registration, login, logout, task creation, assignment, updating, and deletion.\n\nProtected routes require a valid JWT token. After logging in, the access token is automatically stored in the environment variable and used for authorized requests.\n\nAdmin users have full access to all tasks and user data, while regular users can only access and manage their own assigned tasks.\n\nBase URL:  \n[http://localhost:8000/api/v1](http://localhost:8000/api/v1)\n\nEndFragment",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52630921",
+    "_collection_link": "https://go.postman.co/collection/52630921-d7e89fa7-8faf-483e-9aa1-bf20560ce6ea?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\":\"username\",\r\n    \"email\":\"user@email.com\",\r\n    \"fullName\":\"User\",\r\n    \"password\": \"password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{server}}/user/register",
+              "host": [
+                "{{server}}"
+              ],
+              "path": [
+                "user",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"admin@email.com\",\r\n    \"password\": \"password\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{server}}/user/login",
+              "host": [
+                "{{server}}"
+              ],
+              "path": [
+                "user",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{server}}/user/logout",
+              "host": [
+                "{{server}}"
+              ],
+              "path": [
+                "user",
+                "logout"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fetch All User",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{server}}/user/all-users",
+              "host": [
+                "{{server}}"
+              ],
+              "path": [
+                "user",
+                "all-users"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Tasks",
+      "item": [
+        {
+          "name": "New Task",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Now Add Frontend\",\r\n    \"description\": \"This API endpoint is used to create a new task in the system.\",\r\n    \"dueDate\": \"2023-12-31\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{server}}/task/new-task",
+              "host": [
+                "{{server}}"
+              ],
+              "path": [
+                "task",
+                "new-task"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Assign Task",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"2 Assigned Task\",\r\n    \"description\": \"This API endpoint is used to create a new task in the system.\",\r\n    \"assignedTo\": \"69e7cf16cd73d3ceae987fba\",\r\n    \"dueDate\": \"2023-12-31\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{server}}/task/assign-task",
+              "host": [
+                "{{server}}"
+              ],
+              "path": [
+                "task",
+                "assign-task"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Tasks",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{server}}/task/all-tasks",
+              "host": [
+                "{{server}}"
+              ],
+              "path": [
+                "task",
+                "all-tasks"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Task",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Updated Task Frontend\" ,\r\n    \"description\": \"This API endpoint is used to update an existing task.\",\r\n    \"dueDate\": \"2023-12-31\",\r\n    \"status\": \"completed\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{server}}/task/update/69e83f099801a7e22e5b53b5",
+              "host": [
+                "{{server}}"
+              ],
+              "path": [
+                "task",
+                "update",
+                "69e83f099801a7e22e5b53b5"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Status",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"status\": \"completed\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{server}}/task/69e83f099801a7e22e5b53b5",
+              "host": [
+                "{{server}}"
+              ],
+              "path": [
+                "task",
+                "69e83f099801a7e22e5b53b5"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Task",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{server}}/task/69e83f909801a7e22e5b53b7",
+              "host": [
+                "{{server}}"
+              ],
+              "path": [
+                "task",
+                "69e83f909801a7e22e5b53b7"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
+}

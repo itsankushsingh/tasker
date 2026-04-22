@@ -7,7 +7,7 @@ A full-stack Task Management System built with Node.js, Express, MongoDB, and a 
 ## Live Demo
 
 Tasker:  
-<PASTE_FRONTEND_DEPLOYED_LINK_HERE>
+[Click Here (Tasker)](https://tasker-ankush.vercel.app)
 
 ---
 
@@ -171,7 +171,7 @@ http://localhost:8000
 
 You can test APIs using:
 
-- Postman
+- Postman (Create A Environment Variable "localhost:8000/api/v1" By Name {{server}}) - if using the Tasker.postman_collection.json
 - Swagger
 
 ---
